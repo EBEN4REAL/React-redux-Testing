@@ -47,13 +47,11 @@ class Wines extends React.Component {
 	}
 
 	nextPage  = () => {
-		this.setState({wines: null})
 		this.props.dispatch(goToNextPage(this.props.currentPage));
 		this.fetchWines();
 	}
 
 	goToPreviousPage = () => {
-		this.setState({wines: null});
 		this.props.dispatch(goToPreviousPage(this.props.currentPage));
 		this.fetchWines();
 	}
@@ -92,7 +90,8 @@ class Wines extends React.Component {
   	  let previousButton ;
 
   	  if(this.state.wineRendered){
-  	  	previousButton = (
+  	  	if(this.props.currentPage !== 1){
+  	  		previousButton = (
   	  		<Button style=
       				{{
       					marginBottom: '20px', 
@@ -105,7 +104,7 @@ class Wines extends React.Component {
       				}} 
       				color="primary" variant="contained"  onClick={() => this.goToPreviousPage()}>Back</Button>
   			)
-	  	
+  	  	}
   	  }
 
   	  let loader;
