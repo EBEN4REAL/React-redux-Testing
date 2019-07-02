@@ -47,16 +47,14 @@ class Wines extends React.Component {
 
 	nextPage  = () => {
 		this.setState({wines: null})
-		this.props.dispatch(goToNextPage());
+		this.props.dispatch(goToNextPage(this.props.currentPage));
 		this.fetchWines();
 	}
 
 	
 	
 	render(){
-	  console.log(this.state.nextPage)
 	  const {wineRendered} = this.props;
-	  console.log(this.props.currentPage);
 
       let loadWines;
       if(this.state.wines != null){
@@ -92,12 +90,22 @@ class Wines extends React.Component {
         )
       }
 
+      let loadWinesButton;
+
+      if(this.state.wines === null){
+      	loadWinesButton = (
+      		<Button variant="contained" color="primary" onClick={() => this.fetchWines()}>
+	              Load Wines
+	         </Button>
+      	)
+      }
+
 
 		return (
 			<div data-test='winesComponent'>
-				 <Button variant="contained" color="primary" onClick={() => this.fetchWines()}>
-		              Load Wines
-		         </Button>
+
+				{loadWinesButton}
+				 
 		         <div style={{margin: 'o auto' , padding: '10px'}}>
 		         	{loader}
 		         </div>

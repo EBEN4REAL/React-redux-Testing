@@ -9,7 +9,7 @@ export default (state = initialState , action) => {
 		case types.GET_WINES:
 		 	return {...state , newWines: action.payload};
 	 	case types.GET_CURRENT_PAGE:
-	 		return {...state, currentPage: initialState.currentPage + 1}
+	 		return {...state, currentPage: action.payload}
 		 default:
 		 	return state;
 	}
