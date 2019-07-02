@@ -1,0 +1,33 @@
+.cardSection {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin:  20px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    padding: 20px 20px;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  .producer{
+    color: grey;
+    font-size: 18px;
+  }
+  
+  .cardSection button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .cardSection button:hover {
+    opacity: 0.7;
+  }
+  
