@@ -1,11 +1,15 @@
 import {types}  from '../../actions/types';
 
-export default (state={} , action) => {
+const initialState = {
+	currentPage: 1
+}
+
+export default (state = initialState , action) => {
 	switch(action.type){
 		case types.GET_WINES:
 		 	return {...state , newWines: action.payload};
 	 	case types.GET_CURRENT_PAGE:
-	 		return {...state, currentPage: action.payload}
+	 		return {...state, currentPage: initialState.currentPage + 1}
 		 default:
 		 	return state;
 	}

@@ -15,7 +15,7 @@ export const fetchWines = () => {
 		payload: req,
 	}
 }
-export const currentPage = (page) => {
+export const goToNextPage = (page) => {
 	return {
 		type: types.GET_CURRENT_PAGE,
 		payload: page + 1

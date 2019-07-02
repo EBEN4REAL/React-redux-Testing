@@ -11,6 +11,7 @@ import Card from '../card';
 import axios from 'axios';
 import {configParams} from '../../config';
 import Loader from '../Loader';
+import {goToNextPage} from '../../store/actions';
 
 
 class Wines extends React.Component {
@@ -19,7 +20,6 @@ class Wines extends React.Component {
 		wines: null,
 		wineRendered: false,
 		clickedGetWinesButton: false,
-		currentPage: 1,
 		nextPage: null
 	}
 
@@ -31,7 +31,7 @@ class Wines extends React.Component {
 
 	fetchWines = () => {
 		this.setState({clickedGetWinesButton: true});
-		const reqUrl = configParams.apiUrl + `/v1/wines?page=${this.state.currentPage}&limit=25&sort_by=price_low_high`
+		const reqUrl = "https://test.wineapp.me/api/v1/wines?page=" + this.props.currentPage + "&limit=25&sort_by=price_low_high";
 		let req = axios.get(reqUrl)
 			.then(res =>  {
 				this.setState({wines: res.data, wineRendered: true, nextPage: res.data.meta.next_href});
@@ -45,9 +45,10 @@ class Wines extends React.Component {
 				});
 	}
 
-	goToNextPage  = () => {
-		let currentPage = this.state.currentPage;
-		this.setState({currentPage: currentPage + 1} , this.fetchWines());
+	nextPage  = () => {
+		this.setState({wines: null})
+		this.props.dispatch(goToNextPage());
+		this.fetchWines();
 	}
 
 	
@@ -55,7 +56,7 @@ class Wines extends React.Component {
 	render(){
 	  console.log(this.state.nextPage)
 	  const {wineRendered} = this.props;
-
+	  console.log(this.props.currentPage);
 
       let loadWines;
       if(this.state.wines != null){
@@ -79,7 +80,7 @@ class Wines extends React.Component {
       					border: 'none',
       					cursor: 'pointer'
       				}} 
-      				color="primary" variant="contained"  onClick={() => this.goToNextPage()}>Load More Wines...</Button>
+      				color="primary" variant="contained"  onClick={() => this.nextPage()}>Load More Wines...</Button>
   			)
   	  }
 
@@ -118,7 +119,8 @@ class Wines extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    wines: state.winesReducer.newWines
+    wines: state.winesReducer.newWines,
+    currentPage:state.winesReducer.currentPage
   }
 }
 
