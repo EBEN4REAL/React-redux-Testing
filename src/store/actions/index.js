@@ -17,10 +17,16 @@ export const fetchWines = () => {
 }
 export const goToNextPage = (page) => {
 	return {
-		type: types.GET_CURRENT_PAGE,
+		type: types.GO_TO_NEXT_PAGE,
 		payload: page + 1
 	}
 }
 
+export const goToPreviousPage = (page) => {
+	return {
+		type: types.GO_TO_PREVIOUS_PAGE,
+		payload: page - 1
+	}
+}
 
 

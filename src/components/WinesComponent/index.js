@@ -12,6 +12,7 @@ import axios from 'axios';
 import {configParams} from '../../config';
 import Loader from '../Loader';
 import {goToNextPage} from '../../store/actions';
+import {goToPreviousPage}  from '../../store/actions';
 
 
 class Wines extends React.Component {
@@ -51,6 +52,12 @@ class Wines extends React.Component {
 		this.fetchWines();
 	}
 
+	goToPreviousPage = () => {
+		this.setState({wines: null});
+		this.props.dispatch(goToPreviousPage(this.props.currentPage));
+		this.fetchWines();
+	}
+
 	
 	
 	render(){
@@ -64,10 +71,10 @@ class Wines extends React.Component {
         console.log(this.state.wines);
       }
 
-      let button;
+      let nextButton;
 
       if(this.state.wineRendered){
-      		button =  ( 
+      		nextButton =  ( 
       			<Button style=
       				{{
       					marginBottom: '20px', 
@@ -78,8 +85,27 @@ class Wines extends React.Component {
       					border: 'none',
       					cursor: 'pointer'
       				}} 
-      				color="primary" variant="contained"  onClick={() => this.nextPage()}>Load More Wines...</Button>
+      				color="primary" variant="contained"  onClick={() => this.nextPage()}>Next</Button>
   			)
+  	  }
+
+  	  let previousButton ;
+
+  	  if(this.state.wineRendered){
+  	  	previousButton = (
+  	  		<Button style=
+      				{{
+      					marginBottom: '20px', 
+      					backgroundColor: "grey", 
+      					padding: '5px',
+      					color: '#FFFFFF',
+      					outline: 'none',
+      					border: 'none',
+      					cursor: 'pointer'
+      				}} 
+      				color="primary" variant="contained"  onClick={() => this.goToPreviousPage()}>Back</Button>
+  			)
+	  	
   	  }
 
   	  let loader;
@@ -114,7 +140,7 @@ class Wines extends React.Component {
 				 	{loadWines}
 			      </Grid>
 			      <div className="moreWines">
-			      	 {button}
+			      	 {previousButton} {nextButton}
 			      </div>
 				 
 			</div>

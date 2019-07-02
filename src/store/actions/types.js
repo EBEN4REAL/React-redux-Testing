@@ -3,5 +3,7 @@
 
 export const types = {
 	GET_WINES: 'getWines',
-	GET_CURRENT_PAGE: 'get_current_page'
+	GO_TO_NEXT_PAGE: 'go_to_next_page',
+	GO_TO_PREVIOUS_PAGE: 'go_to_previous_page'
+
 }
