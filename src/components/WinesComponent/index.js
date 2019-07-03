@@ -1,10 +1,7 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
+
 
 import Grid from '@material-ui/core/Grid';
-import WineCard from '../card';
-
-import { makeStyles } from '@material-ui/core/styles';
 import Button  from '@material-ui/core/Button';
 import {connect}  from 'react-redux';
 import Card from '../card';
@@ -33,7 +30,7 @@ class Wines extends React.Component {
 	fetchWines = () => {
 		this.setState({clickedGetWinesButton: true});
 		const reqUrl = "https://test.wineapp.me/api/v1/wines?page=" + this.props.currentPage + "&limit=25&sort_by=price_low_high";
-		let req = axios.get(reqUrl)
+		 axios.get(reqUrl)
 			.then(res =>  {
 				this.setState({wines: res.data, wineRendered: true, nextPage: res.data.meta.next_href});
 			})
@@ -73,17 +70,7 @@ class Wines extends React.Component {
 
       if(this.state.wineRendered){
       		nextButton =  ( 
-      			<Button style=
-      				{{
-      					marginBottom: '20px', 
-      					backgroundColor: "grey", 
-      					padding: '5px',
-      					color: '#FFFFFF',
-      					outline: 'none',
-      					border: 'none',
-      					cursor: 'pointer'
-      				}} 
-      				color="primary" variant="contained"  onClick={() => this.nextPage()}>Next</Button>
+      			<Button color="primary" variant="contained"  onClick={() => this.nextPage()}>Next</Button>
   			)
   	  }
 
@@ -92,17 +79,7 @@ class Wines extends React.Component {
   	  if(this.state.wineRendered){
   	  	if(this.props.currentPage !== 1){
   	  		previousButton = (
-  	  		<Button style=
-      				{{
-      					marginBottom: '20px', 
-      					backgroundColor: "grey", 
-      					padding: '5px',
-      					color: '#FFFFFF',
-      					outline: 'none',
-      					border: 'none',
-      					cursor: 'pointer'
-      				}} 
-      				color="primary" variant="contained"  onClick={() => this.goToPreviousPage()}>Back</Button>
+  	  		<Button color="primary" variant="contained"  onClick={() => this.goToPreviousPage()}>Back</Button>
   			)
   	  	}
   	  }
