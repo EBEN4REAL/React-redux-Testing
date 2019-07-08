@@ -15,6 +15,7 @@ export const fetchWines = () => {
 		payload: req,
 	}
 }
+
 export const goToNextPage = (page) => {
 	return {
 		type: types.GO_TO_NEXT_PAGE,
@@ -29,4 +30,20 @@ export const goToPreviousPage = (page) => {
 	}
 }
 
+
+export const fetchPosts = () => {
+	let req = axios.get("https://test.wineapp.me/api/v1/wines")
+		.then((res) => {
+			console.log(res.data);
+			return res.data
+		}).catch(err => {
+			console.log(err);
+		});
+
+
+	return {
+		type: types.GET_POSTS,
+		payload: req
+	}
+}
 

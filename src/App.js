@@ -5,18 +5,28 @@ import './App.scss';
 import Header from './components/Header';
 import ListItem from './components/ListItem';
 import {connect}  from 'react-redux';
-import {Switch, Router} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import WinesWrapper from './containers/wineWrapper';
+import {fetchPosts} from './store/actions';
+import Layout from './containers/Layout';
 
 
 class App extends React.Component {
 
+    componentDidMount(){
+        this.props.dispatch(fetchPosts());
+      }
+
     render() {
 
       return (
-        <div >
-          <Header />
-          <WinesWrapper />
+
+        <div>
+          <Layout>
+            <Switch>
+              <Route path="/" component={WinesWrapper}  />
+            </Switch>
+          </Layout>
         </div>
       );
     }
