@@ -29,6 +29,7 @@ class Wines extends React.Component {
 	}
 
 	goToWineDetailsPage = (wineId) => {
+		this.props.history.push('/wines/' + wineId);
 		console.log(this.props);
 	}
 
@@ -61,17 +62,19 @@ class Wines extends React.Component {
 	
 	
 	render(){
-	  const {wineR
+
+	  const {wines} = this.props;
+
+     let loadWines;
+      if(this.state.wines != null){
         loadWines = this.state.wines.wines.map((wine, key) => (
               <Card {...wine} key={key} clickHandler={() => this.goToWineDetailsPage(wine.id)}/>
         ));
+        console.log(this.state.wines);
       }
 
       let nextButton;
 
-      if(this.state.wineRendered){endered} = this.props;
-
-      let loadWines;
       if(this.state.wines != null){
       		nextButton =  ( 
       			<Button color="primary" variant="contained"  onClick={() => this.nextPage()}>Next</Button>

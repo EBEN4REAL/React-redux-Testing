@@ -12,7 +12,7 @@ class WinesWrapper extends React.Component {
 				<section className="main">
 		            <Headline header="Wines"  desc="Click the button to render wines!"/>
 		            <div style={{marginTop: '50px', marginBottom: '50px'}}>
-		              <Wines />
+		              <Wines {...this.props} />
 		            </div>
 	          	</section>
 			</div>
