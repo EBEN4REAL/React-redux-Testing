@@ -21,42 +21,7 @@ describe('FetchWines action' , () => {
 
 	test('Store is updated correctly', () => {
 		const expectedState = {
-			meta: {
-				next_href: "/api/v1/wines?page=2&limit=25&sort_by=price_low_high"
-			},
-			wines: {
-				[
-					{
-						id: 290,
-						variant_id:'456789fvbnm,',
-						is_available: true,
-						rebuy_rating: 0,
-						is_bookmarked: false,
-						media: [{type: "image", subtype: null, public_id: "xtw4mlvtiej74p4nojdg", background_color: null}],
-						name: "Syrah",
-						price: {original: 11, currency: "GBP", actual: 9.85},
-						actual: 9.85,
-						currency: "GBP",
-						original: 11,
-						producer: [{about: "about_producer"}, {id: 98} , {media: [{name: "name"}]}],	
-					},
-					{
-						id: 290,
-						variant_id:'567890yhjkl;',
-						is_available: true,
-						rebuy_rating: 0,
-						is_bookmarked: false,
-						media: [{type: "image", subtype: null, public_id: "xtw4mlvtiej74p4nojdg", background_color: null}],
-						name: "Syrah",
-						price: {original: 11, currency: "GBP", actual: 9.85},
-						actual: 9.85,
-						currency: "GBP",
-						original: 11,
-						producer: [{about: "about_producer"}, {id: 98} , {media: [{name: "name"}]}],	
-					},
-
-				]
-			}
+			
 		}
 	});
 

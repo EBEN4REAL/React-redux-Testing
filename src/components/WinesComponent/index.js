@@ -27,6 +27,11 @@ class Wines extends React.Component {
 	  	}
 	}
 
+	goToWineDetailsPage = (wineId) => {
+		console.log(this.props);
+		console.log(wineId);
+	}
+
 	fetchWines = () => {
 		this.setState({clickedGetWinesButton: true});
 		const reqUrl = "https://test.wineapp.me/api/v1/wines?page=" + this.props.currentPage + "&limit=25&sort_by=price_low_high";
@@ -61,9 +66,8 @@ class Wines extends React.Component {
       let loadWines;
       if(this.state.wines != null){
         loadWines = this.state.wines.wines.map((wine, key) => (
-              <Card {...wine} key={key}/>
+              <Card {...wine} key={key} clickHandler={() => this.goToWineDetailsPage(wine.id)}/>
         ));
-        console.log(this.state.wines);
       }
 
       let nextButton;
