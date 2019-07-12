@@ -2,6 +2,7 @@
 import React from 'react';
 import Wines from '../../components/WinesComponent';
 import Headline from '../../components/Headline';
+import {withRouter} from 'react-router';
 
 class WinesWrapper extends React.Component {
 
@@ -19,4 +20,4 @@ class WinesWrapper extends React.Component {
 	}
 }
 
-export default WinesWrapper;
+export default withRouter(WinesWrapper);

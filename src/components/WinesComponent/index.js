@@ -10,6 +10,7 @@ import {configParams} from '../../config';
 import Loader from '../Loader';
 import {goToNextPage} from '../../store/actions';
 import {goToPreviousPage}  from '../../store/actions';
+import {withRouter} from 'react-router-dom';
 
 
 class Wines extends React.Component {
@@ -29,7 +30,6 @@ class Wines extends React.Component {
 
 	goToWineDetailsPage = (wineId) => {
 		console.log(this.props);
-		console.log(wineId);
 	}
 
 	fetchWines = () => {
@@ -61,10 +61,7 @@ class Wines extends React.Component {
 	
 	
 	render(){
-	  const {wineRendered} = this.props;
-
-      let loadWines;
-      if(this.state.wines != null){
+	  const {wineR
         loadWines = this.state.wines.wines.map((wine, key) => (
               <Card {...wine} key={key} clickHandler={() => this.goToWineDetailsPage(wine.id)}/>
         ));
@@ -72,7 +69,10 @@ class Wines extends React.Component {
 
       let nextButton;
 
-      if(this.state.wineRendered){
+      if(this.state.wineRendered){endered} = this.props;
+
+      let loadWines;
+      if(this.state.wines != null){
       		nextButton =  ( 
       			<Button color="primary" variant="contained"  onClick={() => this.nextPage()}>Next</Button>
   			)

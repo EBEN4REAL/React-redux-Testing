@@ -13,7 +13,7 @@ import {configParams} from '../../config';
               <p><b>Wine Name: </b>{props.name}</p>
               <p className="price"></p>
               <p className="producer">Produced by <b>{props.producer.name}</b></p>
-              <p><button onClick={props.clickHandler()}>View Details</button></p>
+              <p><button onClick={props.clickHandler}>View Details</button></p>
           </div>
       </div>
      
