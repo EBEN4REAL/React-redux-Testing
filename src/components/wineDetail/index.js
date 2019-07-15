@@ -34,21 +34,24 @@ class Wine extends Component {
         const links = [
             {
                 name: "Producer",
-                linkTo: '/wines/producer'
+                linkTo: '/wines/producer',
+                classes: ['active']
             },
             {
                 name: 'Reviews',
-                linkTo: '/wines/reviews'
+                linkTo: '/wines/reviews',
+                classes: ['']
             },
         ]
 
         const classes = ['active'];
+
         const strclasses = classes.join(",");
 
         const genearateSidebarLinks = (links) => (
             links.map((item, index) => {
                 return (
-                    <Link to={item.linkTo} className={strclasses}  key={index}>{item.name}</Link>
+                    <Link to={item.linkTo} className={item.classes[0]}  key={index}>{item.name}</Link>
                 )
             })
         )
