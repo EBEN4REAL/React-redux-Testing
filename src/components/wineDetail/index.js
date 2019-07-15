@@ -9,7 +9,9 @@ class Wine extends Component {
     state = {
         wineDetails: {},
         isLoading: false,
-        publicId: 0
+        publicId: 0,
+    	activeLink: null
+
     }
     componentDidMount(){
         this.loadData();
@@ -27,31 +29,50 @@ class Wine extends Component {
             
         }
     }
+    toggleActiveClass = (activeLink) => {
+    	this.setState({activeLink: activeLink});
+    	
+    }
     render () {
         console.log(this.state.wineDetails);
         let imgUrl = configParams.cloudinaryUrl + "/" + this.state.publicId;
         let wine = {...this.state.wineDetails};
-        const links = [
+
+        let links = [
             {
                 name: "Producer",
                 linkTo: '/wines/producer',
-                classes: ['active']
+                classes: ['']
             },
             {
                 name: 'Reviews',
                 linkTo: '/wines/reviews',
                 classes: ['']
             },
-        ]
+        ];
+
+
+
+        if(this.state.activeLink === 'Producer'){
+        	links[0].classes[0] = "active";
+        	links[1].classes[0] = "";
+        }else if(this.state.activeLink === 'Reviews'){
+        	links[0].classes[0] = "";
+        	links[1].classes[0] = "active";
+        }
+
+        console.log(links);
 
         const classes = ['active'];
 
         const strclasses = classes.join(",");
 
+        console.log(this.state.activeLink);
+
         const genearateSidebarLinks = (links) => (
             links.map((item, index) => {
                 return (
-                    <Link to={item.linkTo} className={item.classes[0]}  key={index}>{item.name}</Link>
+                    <a  className={item.classes[0]}  key={index} onClick={() => this.toggleActiveClass(item.name)}>{item.name}</a>
                 )
             })
         )
