@@ -107,25 +107,30 @@ class Wine extends Component {
                                     </div>
                                 </div>
                                 <div className="right-content">
-                                    <div className="basicInfo">
-                                        <h3 className="producer-text"><b>Basic Info.</b></h3>
-                                        {this.state.activeLink === 'Producer' ? 
-                                        	 <div>
+	                                <div className="right-content-subsection">
+	                                	   {this.state.activeLink === 'Producer' ? 
+	                                    <div className="basicInfo">
+	                                        <h3 className="producer-text"><b>Basic Info.</b></h3>
+	                                        
+	                                    	 <div>
 	                                           <p><b>City: </b> {this.state.wineDetails.city}</p>
 	                                           <p><b>Country: </b> {this.state.wineDetails.country}</p>
 	                                           <p><b>Wine Name: </b> {this.state.wineDetails.name}</p>
 	                                        </div>
-                                        :null}
-                                       
-                                    </div>
-                                    {this.state.activeLink === 'Reviews' ?
+	                                       
+	                                       
+	                                    </div>
+	                                 :null}
+	                                {this.state.activeLink === 'Reviews' ?
 	                                    	 <div className="basicInfo">
 		                                        <h3 className="producer-text"><b>Wine Reviews</b></h3>
 		                                        <div>
 		                                           Some Wine Reviews
 		                                        </div>
 		                                    </div>
-                                	:null}
+	                                	:null}
+	                                </div>
+                             
                                 </div>
                             </div>
                             
