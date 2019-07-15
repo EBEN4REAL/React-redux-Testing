@@ -10,7 +10,7 @@ class Wine extends Component {
         wineDetails: {},
         isLoading: false,
         publicId: 0,
-    	activeLink: null
+    	activeLink: 'Producer'
 
     }
     componentDidMount(){
@@ -88,6 +88,7 @@ class Wine extends Component {
                                         
                                     }
                                 }>
+
                             
                         </div>
                         <div>
