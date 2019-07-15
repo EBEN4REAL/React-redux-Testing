@@ -39,9 +39,9 @@
   }
 
   .right-content{
-      flex: 0 0 70%;
-      height: 500px;
-      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+      flex: 0 0 65%;
+      height: auto;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
       display: flex;
   }
   .active{
@@ -52,4 +52,7 @@
 
   a{
     cursor: pointer;
+  }
+  .producer{
+    margin: 10px;
   }
