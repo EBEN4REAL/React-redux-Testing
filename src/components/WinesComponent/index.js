@@ -29,7 +29,7 @@ class Wines extends React.Component {
 	}
 
 	goToWineDetailsPage = (wineId) => {
-		this.props.history.push('/wines/' + wineId);
+		this.props.history.push({pathname: '/wines/' + wineId});
 		console.log(this.props);
 	}
 
