@@ -11,7 +11,9 @@ export default (state = initialState , action) => {
 	 	case types.GO_TO_NEXT_PAGE:
 	 		return {...state, currentPage: action.payload};
  		case types.GO_TO_PREVIOUS_PAGE:
- 			return {...state, currentPage: action.payload}
+ 			return {...state, currentPage: action.payload};
+		case types.SHOW_LOADER:
+			return {...state, showLoader: action.payload};
 		 default:
 		 	return state;
 	}

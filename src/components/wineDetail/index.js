@@ -64,7 +64,7 @@ class Wine extends Component {
         const classes = ['active'];
 
         const strclasses = classes.join(",");
-        
+
         const genearateSidebarLinks = (links) => (
             links.map((item, index) => {
                 return (
@@ -119,7 +119,7 @@ class Wine extends Component {
 	                                 :null}
 	                                {this.state.activeLink === 'Reviews' ?
 	                                    	 <div className="basicInfo">
-		                                        <h3 className="producer-text"><b>Wine Reviews</b></h3>
+		                                        <h3 className="producer-text" style={{textAlign: 'center'}}><b>Some Reviews about this wine </b></h3>
 		                                        <div>
 		                                           Some Wine Reviews
 		                                        </div>

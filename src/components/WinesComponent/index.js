@@ -13,6 +13,7 @@ import {goToPreviousPage}  from '../../store/actions';
 import {withRouter} from 'react-router-dom';
 
 
+
 class Wines extends React.Component {
 
 	state = {
@@ -116,7 +117,7 @@ class Wines extends React.Component {
 				{loadWinesButton}
 				 
 		         <div style={{margin: 'o auto' , padding: '10px'}}>
-		         	{loader}
+		         {loader}
 		         </div>
 		         
 				 <Grid container spacing={3}>
