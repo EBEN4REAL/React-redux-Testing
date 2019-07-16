@@ -4,6 +4,7 @@ import './styles.scss';
 import axios from 'axios';
 import {configParams} from '../../config';
 import {Link} from 'react-router-dom';
+import Paper  from '@material-ui/core/Paper';
 
 class Wine extends Component {
     state = {
@@ -97,11 +98,12 @@ class Wine extends Component {
                                 {/* {this.state.wineDetails.city} */}
                             </div>
                             <div className="wine-details">
-                                <div className="sidebar">
+                                 <div className="sidebar">
                                     <div className="sidenav">
-                                    {genearateSidebarLinks(links)}
+                                        {genearateSidebarLinks(links)}
                                     </div>
                                 </div>
+                               
                                 <div className="right-content">
 	                                <div className="right-content-subsection">
 	                                	   {this.state.activeLink === 'Producer' ? 
