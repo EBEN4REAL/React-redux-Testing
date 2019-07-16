@@ -21,7 +21,7 @@ class Wine extends Component {
         if (this.props.match.params.id) {
             axios.get(configParams.apiUrl + "/" + this.props.match.params.id)
                 .then(res => {
-                    console.log(res.data.wine.media[0].public_id);
+                    // console.log(res.data.wine.media[0].public_id);
                     this.setState({wineDetails: res.data.wine, isLoading: true, publicId: res.data.wine.media[0].public_id})
                 }).catch(error => {
                     console.log(error);
@@ -34,7 +34,7 @@ class Wine extends Component {
     	
     }
     render () {
-        console.log(this.state.wineDetails);
+        // console.log(this.state.wineDetails);
         let imgUrl = configParams.cloudinaryUrl + "/" + this.state.publicId;
         let wine = {...this.state.wineDetails};
 
@@ -61,14 +61,10 @@ class Wine extends Component {
         	links[1].classes[0] = "active";
         }
 
-        console.log(links);
-
         const classes = ['active'];
 
         const strclasses = classes.join(",");
-
-        console.log(this.state.activeLink);
-
+        
         const genearateSidebarLinks = (links) => (
             links.map((item, index) => {
                 return (
@@ -77,7 +73,7 @@ class Wine extends Component {
             })
         )
                 return (
-                    <div>
+                    <div data-test='wineDetails'>
                         <div className="banner" 
                             style={
                                     {

@@ -30,7 +30,7 @@ class Wines extends React.Component {
 
 	goToWineDetailsPage = (wineId) => {
 		this.props.history.push({pathname: '/wines/' + wineId});
-		console.log(this.props);
+		// console.log(this.props);
 	}
 
 	fetchWines = () => {
@@ -70,7 +70,7 @@ class Wines extends React.Component {
         loadWines = this.state.wines.wines.map((wine, key) => (
               <Card {...wine} key={key} clickHandler={() => this.goToWineDetailsPage(wine.id)}/>
         ));
-        console.log(this.state.wines);
+        // console.log(this.state.wines);
       }
 
       let nextButton;
