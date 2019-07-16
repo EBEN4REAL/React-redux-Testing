@@ -7,6 +7,7 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import {NavLink} from 'react-router-dom';
 import Logo from '../../logo.svg';
+import './styles.scss';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -79,7 +80,8 @@ export default function SearchAppBar() {
           <Typography className={classes.title} variant="h6" noWrap>
             <img src={Logo} alt="Logo" height="40px"  />
           </Typography>
-    		<a href="/"  style={{textDecoration: 'none', color: 'white'}}>Wines</a>
+    		<a href="/" className="nav-link" style={{textDecoration: 'none', color: 'white', marginRight: '10px'}}>Wines</a>
+    		<a href="/"  style={{textDecoration: 'none', color: 'white'}}>New Wine</a>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               
