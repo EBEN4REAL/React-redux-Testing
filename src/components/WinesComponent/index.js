@@ -11,6 +11,7 @@ import Loader from '../Loader';
 import {goToNextPage} from '../../store/actions';
 import {goToPreviousPage}  from '../../store/actions';
 import {withRouter} from 'react-router-dom';
+import Modal from '../Modal';
 
 
 
@@ -20,7 +21,8 @@ class Wines extends React.Component {
 		wines: null,
 		wineRendered: false,
 		clickedGetWinesButton: false,
-		nextPage: null
+		nextPage: null,
+		networkError: false
 	}
 
 	componentDidMount(){
@@ -44,7 +46,7 @@ class Wines extends React.Component {
 				.catch(err => {
 					console.log(err);
 					if(err !== null){
-						this.setState({wineRendered: false});
+						this.setState({networkError: true});
 					}
 					
 				});
@@ -119,6 +121,9 @@ class Wines extends React.Component {
 		         <div style={{margin: 'o auto' , padding: '10px'}}>
 		         {loader}
 		         </div>
+
+		         {this.state.networkError ?  <Modal /> : null}
+		        
 		         
 				 <Grid container spacing={3}>
 				 	{loadWines}
