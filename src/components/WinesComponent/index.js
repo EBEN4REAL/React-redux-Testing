@@ -73,7 +73,7 @@ class Wines extends React.Component {
         loadWines = this.state.wines.wines.map((wine, key) => (
               <Card {...wine} key={key} clickHandler={() => this.goToWineDetailsPage(wine.id)}/>
         ));
-        // console.log(this.state.wines);
+        console.log(this.state.wines);
       }
 
       let nextButton;
