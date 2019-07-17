@@ -1,8 +1,31 @@
-header{
-	background: black;
+.nav-link{
 	color: white;
-	.wrap {
-		margin: 0 auto;
-		width: 90%;
-	}
+	cursor: pointer;
+	margin-right: 25px;
+	text-decoration: none
 }
+.active {
+	background-color: grey;
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

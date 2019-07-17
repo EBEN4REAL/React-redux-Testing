@@ -65,7 +65,9 @@ const useStyles = makeStyles(theme => ({
 export default function SearchAppBar() {
   const classes = useStyles();
 
+  
   return (
+
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
@@ -75,13 +77,13 @@ export default function SearchAppBar() {
             color="inherit"
             aria-label="Open drawer"
           >
-            
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             <img src={Logo} alt="Logo" height="40px"  />
           </Typography>
-    		<a href="/" className="nav-link" style={{textDecoration: 'none', color: 'white', marginRight: '10px'}}>Wines</a>
-    		<a href="/"  style={{textDecoration: 'none', color: 'white'}}>New Wine</a>
+    		
+    		<a href="/"  className="nav-link">Wines</a>
+    		<a href="#"  className="nav-link active">New Wine</a>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               
