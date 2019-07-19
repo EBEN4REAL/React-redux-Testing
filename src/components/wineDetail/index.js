@@ -5,6 +5,7 @@ import axios from 'axios';
 import {configParams} from '../../config';
 import {Link} from 'react-router-dom';
 import Paper  from '@material-ui/core/Paper';
+import ListItem from '../ListItem';
 
 class Wine extends Component {
     state = {
@@ -35,7 +36,7 @@ class Wine extends Component {
     	
     }
     render () {
-        // console.log(this.state.wineDetails);
+        console.log(this.state.wineDetails);
         let imgUrl = configParams.cloudinaryUrl + "/" + this.state.publicId;
         let wine = {...this.state.wineDetails};
 
@@ -65,6 +66,25 @@ class Wine extends Component {
         const classes = ['active'];
 
         const strclasses = classes.join(",");
+
+       
+
+        const disPlayListUserReviews = () => {
+
+            if(this.state.wineDetails !== {}) {
+
+                const reviews = [...this.state.wineDetails.reviews];
+
+                console.log(reviews[0]);
+
+                reviews.map((review, index)  => {
+                    return (
+                        <ListItem key={index} />
+                        
+                    )
+                })
+            }
+        }
 
         const genearateSidebarLinks = (links) => (
             links.map((item, index) => {
@@ -123,7 +143,7 @@ class Wine extends Component {
 	                                    	 <div className="basicInfo">
 		                                        <h3 className="producer-text" style={{textAlign: 'center'}}><b>Some Reviews about this wine </b></h3>
 		                                        <div>
-		                                           Some Wine Reviews
+		                                           {disPlayListUserReviews()}
 		                                        </div>
 		                                    </div>
 	                                	:null}

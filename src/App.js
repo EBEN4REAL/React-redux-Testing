@@ -8,6 +8,7 @@ import WinesWrapper from './containers/wineWrapper';
 import {fetchPosts} from './store/actions';
 import Layout from './containers/Layout';
 import WineDetails from './components/wineDetail'
+import WineReviews from './components/WineReviews';
 
 
 class App extends React.Component {
@@ -25,6 +26,7 @@ class App extends React.Component {
             <Switch>
               <Route path="/" exact  component={WinesWrapper}  />
               <Route path="/wines/:id"  component={WineDetails}  />
+              <Route path="/wine_reviews"  component={WineReviews}  />
             </Switch>
           </Layout>
         </div>
