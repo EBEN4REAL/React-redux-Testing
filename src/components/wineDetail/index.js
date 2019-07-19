@@ -47,7 +47,7 @@ class Wine extends Component {
                 classes: ['']
             },
             {
-                name: 'Reviews',
+                name: 'User Reviews',
                 linkTo: '/wines/reviews',
                 classes: ['']
             },
@@ -58,7 +58,7 @@ class Wine extends Component {
         if(this.state.activeLink === 'Producer'){
         	links[0].classes[0] = "active";
         	links[1].classes[0] = "";
-        }else if(this.state.activeLink === 'Reviews'){
+        }else if(this.state.activeLink === 'User Reviews'){
         	links[0].classes[0] = "";
         	links[1].classes[0] = "active";
         }
@@ -139,7 +139,7 @@ class Wine extends Component {
 	                                       
 	                                    </div>
 	                                 :null}
-	                                {this.state.activeLink === 'Reviews' ?
+	                                {this.state.activeLink === 'User Reviews' ?
 	                                    	 <div className="basicInfo">
 		                                        <h3 className="producer-text" style={{textAlign: 'center'}}><b>Some Reviews about this wine </b></h3>
 		                                        <div>

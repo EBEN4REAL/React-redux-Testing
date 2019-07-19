@@ -5,7 +5,7 @@ import Header from './components/Header';
 import {connect}  from 'react-redux';
 import {Switch, Route} from 'react-router-dom';
 import WinesWrapper from './containers/wineWrapper';
-import {fetchPosts} from './store/actions';
+import {fetchWines} from './store/actions';
 import Layout from './containers/Layout';
 import WineDetails from './components/wineDetail'
 import WineReviews from './components/WineReviews';
@@ -14,7 +14,7 @@ import WineReviews from './components/WineReviews';
 class App extends React.Component {
 
     componentDidMount(){
-        this.props.dispatch(fetchPosts());
+        this.props.dispatch(fetchWines());
       }
 
     render() {
