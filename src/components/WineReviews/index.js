@@ -3,6 +3,7 @@ import ListItem from '../ListItem';
 import {connect} from 'react-redux';
 import "./styles.scss";
 import {fetchWines} from '../../store/actions';
+import UserReviews from '../UsersWinesReviews'
 
 class WineReviews extends React.Component {
 
@@ -24,7 +25,7 @@ class WineReviews extends React.Component {
 		if(this.state.wines !== null) {
 
 			renderWineReviews = this.state.wines.wines.map((wine, index) => (
-				<ListItem key={index} />
+				<UserReviews key={index} {...wine} />
 			));
 
 		}
@@ -33,7 +34,7 @@ class WineReviews extends React.Component {
 		return (
 
 			<div style={{margin: '0 auto', width: '95%', paddingTop: '50px'}}>
-				<h3 style={{textAlign: 'center'}}>Reviews about some wines</h3>
+				<h3 style={{textAlign: 'center'}}>Wine producers</h3>
 				<hr className="bottom-line" />
 				<div style={{marginTop:  '70px'}}>
 					{renderWineReviews}

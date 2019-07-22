@@ -83,7 +83,7 @@ export default function SearchAppBar() {
           </Typography>
     		
     		<a href="/"  className="nav-link">Wines</a>
-    		<a href="/wine_reviews"  className="nav-link">Wine Reviews</a>
+    		<a href="/wine_reviews"  className="nav-link">Wine Producers</a>
     		<a href="#"  className="nav-link active">New Wine</a>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
