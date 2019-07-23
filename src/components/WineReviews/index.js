@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import "./styles.scss";
 import {fetchWines} from '../../store/actions';
 import UserReviews from '../UsersWinesReviews'
+import Slider from '../Slider';
 
 class WineReviews extends React.Component {
 
@@ -34,7 +35,8 @@ class WineReviews extends React.Component {
 		return (
 
 			<div style={{margin: '0 auto', width: '95%', paddingTop: '50px'}}>
-				<h3 style={{textAlign: 'center'}}>Wine producers</h3>
+				<Slider />
+				<h3 style={{textAlign: 'center', marginTop: '30px'}}>Wine producers</h3>
 				<hr className="bottom-line" />
 				<div style={{marginTop:  '70px'}}>
 					{renderWineReviews}
