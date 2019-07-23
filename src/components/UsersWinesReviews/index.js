@@ -1,6 +1,11 @@
 import React from 'react';
 import './styles.scss';
 import {configParams} from '../../config';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
 
 class UsersWineReviews extends React.Component {
 
@@ -32,15 +37,15 @@ class UsersWineReviews extends React.Component {
 
 		return (
 
-			<div className="card">
 
+			<Container className="card">
 			  {showPics()}
 			  <h1>{this.props.producer.name}</h1>
 			  <p className="title" style={{padding: "20px"}}>{this.props.producer.about}</p>
 			  <p>Harvard University</p>
 			  <p><button className="reviewButton">Contact</button></p>
 
-			</div>
+			</Container>
 		)
 	}
 }

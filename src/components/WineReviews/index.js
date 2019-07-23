@@ -5,6 +5,9 @@ import "./styles.scss";
 import {fetchWines} from '../../store/actions';
 import UserReviews from '../UsersWinesReviews'
 import Slider from '../Slider';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 class WineReviews extends React.Component {
 
@@ -26,7 +29,9 @@ class WineReviews extends React.Component {
 		if(this.state.wines !== null) {
 
 			renderWineReviews = this.state.wines.wines.map((wine, index) => (
-				<UserReviews key={index} {...wine} />
+				<Col>
+					<UserReviews key={index} {...wine} />
+				</Col>
 			));
 
 		}
@@ -39,7 +44,9 @@ class WineReviews extends React.Component {
 				<h3 style={{textAlign: 'center', marginTop: '30px'}}>Wine producers</h3>
 				<hr className="bottom-line" />
 				<div style={{marginTop:  '70px'}}>
-					{renderWineReviews}
+					<Row>
+					    {renderWineReviews}
+				    </Row>
 				</div>
 				
 			</div>
