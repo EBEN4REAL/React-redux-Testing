@@ -17,7 +17,6 @@ class WineReviews extends React.Component {
 
 	componentDidMount(){
 		this.props.dispatch(fetchWines()).then(res => {
-			console.log(res.payload);
 			this.setState({wines: res.payload});
 		})
 	}
@@ -29,13 +28,12 @@ class WineReviews extends React.Component {
 		if(this.state.wines !== null) {
 
 			renderWineReviews = this.state.wines.wines.map((wine, index) => (
-				<Col>
-					<UserReviews key={index} {...wine} />
+				<Col key={index}>
+					<UserReviews  {...wine} className="mb-3" />
 				</Col>
 			));
 
 		}
-		console.log(this.state.wines);
 
 		return (
 

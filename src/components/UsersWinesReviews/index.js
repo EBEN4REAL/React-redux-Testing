@@ -16,8 +16,6 @@ class UsersWineReviews extends React.Component {
 
 		let imgUrl;
 
-		console.log(this.props);
-
 		if(this.props.producer.media.length > 0){
 
 			imgUrl = configParams.cloudinaryUrl + "/" + this.props.producer.media[0].public_id;
@@ -31,20 +29,19 @@ class UsersWineReviews extends React.Component {
 				<div style={{textAlign: 'center'}}>No picture for this image!</div>
 			)
 		}
-		
 
-		
+		let aboutText  = String(this.props.producer.about);
+
+		let shortenedText = aboutText.slice(0, 60);
 
 		return (
 
-
 			<Container className="card">
 			  {showPics()}
-			  <h1>{this.props.producer.name}</h1>
-			  <p className="title" style={{padding: "20px"}}>{this.props.producer.about}</p>
+			  <h5>{this.props.producer.name}</h5>
+			  <p className="title" style={{padding: "20px"}}>{ shortenedText}</p>
 			  <p>Harvard University</p>
 			  <p><button className="reviewButton">Contact</button></p>
-
 			</Container>
 		)
 	}
