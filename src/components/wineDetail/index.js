@@ -14,7 +14,8 @@ class Wine extends Component {
         wineDetails: {},
         isLoading: false,
         publicId: 0,
-    	activeLink: 'Producer'
+    	activeLink: 'Producer',
+        fetchedWines: false
 
     }
     componentDidMount(){
@@ -25,9 +26,13 @@ class Wine extends Component {
         if (this.props.match.params.id) {
             axios.get(configParams.apiUrl + "/" + this.props.match.params.id)
                 .then(res => {
+                    console.log(res.payload);
                     // console.log(res.data.wine.media[0].public_id);
-                    this.setState({wineDetails: res.data.wine, isLoading: true, publicId: res.data.wine.media[0].public_id})
+                    this.setState({wineDetails: res.data.wine, fetchedWines: true, publicId: res.data.wine.media[0].public_id})
                 }).catch(error => {
+                    if(error !== null){
+                        this.setState({fetchedWines: false})
+                    }
                     console.log(error);
             })
             
@@ -71,47 +76,39 @@ class Wine extends Component {
 
        
 
-        // const userReviews = () => {
+        const userReviews = () => {
 
-        //     if(this.state.wineDetails !== {}) {
+            if(this.state.fetchedWines) {
+                console.log(this.state.wineDetails.reviews);
 
-        //         console.log(this.state.wineDetails.reviews);
+                 return this.state.wineDetails.reviews.map((review, index)  => {
 
-        //         this.state.wineDetails.reviews.map((review, index)  => {
+                        let imgUrl = configParams.cloudinaryUrl + "/" +  review.user.media[0].public_id;
 
-        //             let imgUrl = configParams.cloudinaryUrl + "/" +  review.user.media[0].public_id;
+                        console.log(imgUrl);
 
-        //             console.log(imgUrl);
-
-        //             return (
-        //               <div>Yes</div>
-        //             )
-        //         })
-        //     }
-        // }
-
-        const userReviews = () => (
-
-              this.state.wineDetails.reviews.map((review, index)  => {
-
-                    let imgUrl = configParams.cloudinaryUrl + "/" +  review.user.media[0].public_id;
-
-                    console.log(imgUrl);
-
-                    return (
-                      <Paper key={index}>
-                        <div className="user-review-card" style={{padding: '20px'}}>
-                            <div className="user-review-pic">
-                                <img src={imgUrl} alt="wine review user" width="100%" />
+                        return (
+                          <Paper key={index}>
+                            <div className="user-review-card" style={{padding: '20px'}}>
+                                <div className="user-review-pic">
+                                    <img src={imgUrl} alt="wine review user" width="100%" />
+                                </div>
+                                <div className="user-review-info">
+                                 Some info
+                                </div>
                             </div>
-                            <div className="user-review-info">
-                             Some info
-                            </div>
-                        </div>
-                      </Paper>
-                    )
-                })
-        )
+                          </Paper>
+                        )
+                    })
+            } 
+
+            return (
+                <Paper>
+                    <div style={{textAlign: 'center', padding: '50px'}}> Couldnt fetch User Reviews. Please check your connection!</div>
+                </Paper>
+                
+            )
+        }
 
         const genearateSidebarLinks = (links) => (
             links.map((item, index) => {
