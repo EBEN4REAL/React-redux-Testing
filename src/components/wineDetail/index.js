@@ -100,7 +100,7 @@ class Wine extends Component {
 
                     return (
                       <Paper key={index}>
-                        <div className="user-review-card">
+                        <div className="user-review-card" style={{padding: '20px'}}>
                             <div className="user-review-pic">
                                 <img src={imgUrl} alt="wine review user" width="100%" />
                             </div>
