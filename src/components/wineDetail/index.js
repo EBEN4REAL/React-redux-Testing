@@ -92,10 +92,13 @@ class Wine extends Component {
                           <Paper key={index}>
                             <div className="user-review-card" style={{padding: '20px'}}>
                                 <div className="user-review-pic">
-                                    <img src={imgUrl} alt="wine review user"  width="60%" />
+                                <h6 style={{textAlign: 'center'}}>Wine User</h6>
+                                    <img src={imgUrl} alt="wine review user"  width="60%" style={{margin: '0 auto'}} />
+                                    <p style={{textAlign: 'center'}}>{review.user.first_name} {review.user.last_name} </p>
                                 </div>
                                 <div className="user-review-info">
-                                 <p>{review.user.first_name} {review.user.last_name} </p>
+                                 <p>{review.text} </p>
+                                 <p>{review.vintage_year}</p>
                                 </div>
                             </div>
                           </Paper>
