@@ -71,7 +71,7 @@ class Wine extends Component {
 
        
 
-        const disPlayListUserReviews = () => {
+        const userReviews = () => {
 
             if(this.state.wineDetails !== {}) {
 
@@ -86,14 +86,16 @@ class Wine extends Component {
                     console.log(imgUrl);
 
                     return (
-                        <div className="user-review-card" key={index}>
-                            <div className="user-review-pic" style={{color: 'black' , fontSize: '50px'}}>
-                                <img src={imgUrl} width="50px" />
+                       <Paper> 
+                            <div className="user-review-card" style={{padding: '30px'}} >
+                                <div className="user-review-pic">
+                                    <img src="http://res.cloudinary.com/wineapp/image/upload/w_1000,h_500/WA_PROFILE_33" width="100%" />
+                                </div>
+                                <div className="user-review-info">
+                                    <img src={Logo} width="50px"  /> 
+                                </div>
                             </div>
-                            <div className="user-review-info">
-                                <img src={Logo} width="50px"  /> 
-                            </div>
-                        </div>
+                       </Paper>
                     )
                 })
             }
@@ -133,7 +135,10 @@ class Wine extends Component {
                             <div className="wine-details">
                                  <div className="sidebar">
                                     <div className="sidenav">
-                                        {genearateSidebarLinks(links)}
+                                    <Paper>
+                                       {genearateSidebarLinks(links)} 
+                                    </Paper>
+                                        
                                     </div>
                                 </div>
                                
@@ -155,16 +160,9 @@ class Wine extends Component {
 	                                {this.state.activeLink === 'User Reviews' ?
 	                                    	 <div className="basicInfo">
 		                                        <h3 className="producer-text" style={{textAlign: 'center'}}><b>Some Reviews about this wine </b></h3>
-	                                           {disPlayListUserReviews()}
+	                                           {userReviews()}
 
-                                               <div className="user-review-card" >
-                                                    <div className="user-review-pic">
-                                                        <img src={Logo} width="50px" />
-                                                    </div>
-                                                    <div className="user-review-info">
-                                                        <img src={Logo} width="50px"  /> 
-                                                    </div>
-                                                </div>
+                                               
 		                                    </div>
 	                                	:null}
 	                                </div>
