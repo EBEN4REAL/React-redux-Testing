@@ -71,35 +71,47 @@ class Wine extends Component {
 
        
 
-        const userReviews = () => {
+        // const userReviews = () => {
 
-            if(this.state.wineDetails !== {}) {
+        //     if(this.state.wineDetails !== {}) {
 
-                const reviews = [...this.state.wineDetails.reviews];
+        //         console.log(this.state.wineDetails.reviews);
 
-                console.log(reviews);
+        //         this.state.wineDetails.reviews.map((review, index)  => {
 
-                reviews.map((review, index)  => {
+        //             let imgUrl = configParams.cloudinaryUrl + "/" +  review.user.media[0].public_id;
+
+        //             console.log(imgUrl);
+
+        //             return (
+        //               <div>Yes</div>
+        //             )
+        //         })
+        //     }
+        // }
+
+        const userReviews = () => (
+
+              this.state.wineDetails.reviews.map((review, index)  => {
 
                     let imgUrl = configParams.cloudinaryUrl + "/" +  review.user.media[0].public_id;
 
                     console.log(imgUrl);
 
                     return (
-                       <Paper> 
-                            <div className="user-review-card" style={{padding: '30px'}} >
-                                <div className="user-review-pic">
-                                    <img src="http://res.cloudinary.com/wineapp/image/upload/w_1000,h_500/WA_PROFILE_33" width="100%" />
-                                </div>
-                                <div className="user-review-info">
-                                    <img src={Logo} width="50px"  /> 
-                                </div>
+                      <Paper key={index}>
+                        <div className="user-review-card">
+                            <div className="user-review-pic">
+                                <img src={imgUrl} alt="wine review user" width="100%" />
                             </div>
-                       </Paper>
+                            <div className="user-review-info">
+                             Some info
+                            </div>
+                        </div>
+                      </Paper>
                     )
                 })
-            }
-        }
+        )
 
         const genearateSidebarLinks = (links) => (
             links.map((item, index) => {
@@ -118,21 +130,12 @@ class Wine extends Component {
                                         backgroundSize: 'cover',
                                         backgroundPosition: 'fixed',
                                         
-                                    }
-                                }>
-
-                            
+                                    }} >
                         </div>
-                        <div>
-                            <h3 className="about-header">About this Wine</h3>
-                            <hr className="bottom-line" />
-                        </div>
+                        
 
                         <div>
-                            <div className="wine-name">
-                                {/* {this.state.wineDetails.city} */}
-                            </div>
-                            <div className="wine-details">
+                            <div className= "wine-details">
                                  <div className="sidebar">
                                     <div className="sidenav">
                                     <Paper>
@@ -159,12 +162,11 @@ class Wine extends Component {
 	                                 :null}
 	                                {this.state.activeLink === 'User Reviews' ?
 	                                    	 <div className="basicInfo">
-		                                        <h3 className="producer-text" style={{textAlign: 'center'}}><b>Some Reviews about this wine </b></h3>
+		                                        <h3 className="producer-text" style={{textAlign: 'center', color: 'grey'}}>Some Reviews about this wine</h3>
 	                                           {userReviews()}
-
-                                               
 		                                    </div>
 	                                	:null}
+                                        
 	                                </div>
                              
                                 </div>
