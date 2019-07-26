@@ -38,7 +38,7 @@ class UsersWineReviews extends React.Component {
 
 			<div className="card">
 			  {showPics()}
-			  <h5>{this.props.producer.name}</h5>
+			  <h6>{this.props.producer.name}</h6>
 			  <p className="title" style={{padding: "20px"}}>{ shortenedText}</p>
 			  <p>Harvard University</p>
 			  <p><button className="reviewButton">Contact</button></p>

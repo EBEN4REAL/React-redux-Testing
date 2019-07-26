@@ -7,9 +7,10 @@ import {Link} from 'react-router-dom';
 import Paper  from '@material-ui/core/Paper';
 import ListItem from '../ListItem';
 import Button from 'react-bootstrap/Button';
-import Logo from '../../logo.svg'
+
 
 class Wine extends Component {
+
     state = {
         wineDetails: {},
         isLoading: false,
@@ -91,10 +92,10 @@ class Wine extends Component {
                           <Paper key={index}>
                             <div className="user-review-card" style={{padding: '20px'}}>
                                 <div className="user-review-pic">
-                                    <img src={imgUrl} alt="wine review user" width="100%" />
+                                    <img src={imgUrl} alt="wine review user"  width="60%" />
                                 </div>
                                 <div className="user-review-info">
-                                 Some info
+                                 <p>{review.user.first_name} {review.user.last_name} </p>
                                 </div>
                             </div>
                           </Paper>
@@ -145,24 +146,26 @@ class Wine extends Component {
                                 <div className="right-content">
 	                                <div className="right-content-subsection">
 	                                	   {this.state.activeLink === 'Producer' ? 
-	                                    <div className="basicInfo">
-	                                        <h3 className="producer-text"><b>Basic Info.</b></h3>
-	                                        
-	                                    	 <div>
-	                                           <p><b>City: </b> {this.state.wineDetails.city}</p>
-	                                           <p><b>Country: </b> {this.state.wineDetails.country}</p>
-	                                           <p><b>Wine Name: </b> {this.state.wineDetails.name}</p>
-	                                        </div>
-	                                       
-	                                       
-	                                    </div>
-	                                 :null}
-	                                {this.state.activeLink === 'User Reviews' ?
-	                                    	 <div className="basicInfo">
-		                                        <h3 className="producer-text" style={{textAlign: 'center', color: 'grey'}}>Some Reviews about this wine</h3>
-	                                           {userReviews()}
-		                                    </div>
-	                                	:null}
+        	                                    <div className="basicInfo">
+        	                                        <h3 className="producer-text"><b>Basic Info.</b></h3>
+        	                                        
+        	                                    	 <div>
+        	                                           <p><b>City: </b> {this.state.wineDetails.city}</p>
+        	                                           <p><b>Country: </b> {this.state.wineDetails.country}</p>
+        	                                           <p><b>Wine Name: </b> {this.state.wineDetails.name}</p>
+        	                                        </div>
+        	                                       
+        	                                       
+        	                                    </div>
+        	                                 :null
+                                            }
+        	                                {this.state.activeLink === 'User Reviews' ?
+        	                                    	 <div className="basicInfo">
+        		                                        <h3 className="producer-text" style={{textAlign: 'center', color: 'grey'}}>Some Reviews about this wine</h3>
+        	                                           {userReviews()}
+        		                                    </div>
+        	                                	:null
+                                            }
                                         
 	                                </div>
                              
