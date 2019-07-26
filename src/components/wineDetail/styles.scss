@@ -60,3 +60,14 @@
   .right-content-subsection{
     margin: 20px;
   }
+  .user-review-card{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px
+  }
+  .user-review-pic {
+    flex: 0 0 30%;
+  }
+ .user-review-info {
+    flex: 0 0 70%;
+  }

@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 import Paper  from '@material-ui/core/Paper';
 import ListItem from '../ListItem';
 import Button from 'react-bootstrap/Button';
+import Logo from '../../logo.svg'
 
 class Wine extends Component {
     state = {
@@ -76,12 +77,23 @@ class Wine extends Component {
 
                 const reviews = [...this.state.wineDetails.reviews];
 
-                console.log(reviews[0]);
+                console.log(reviews);
 
                 reviews.map((review, index)  => {
+
+                    let imgUrl = configParams.cloudinaryUrl + "/" +  review.user.media[0].public_id;
+
+                    console.log(imgUrl);
+
                     return (
-                        <ListItem key={index} />
-                        
+                        <div className="user-review-card" key={index}>
+                            <div className="user-review-pic" style={{color: 'black' , fontSize: '50px'}}>
+                                <img src={imgUrl} width="50px" />
+                            </div>
+                            <div className="user-review-info">
+                                <img src={Logo} width="50px"  /> 
+                            </div>
+                        </div>
                     )
                 })
             }
@@ -143,9 +155,16 @@ class Wine extends Component {
 	                                {this.state.activeLink === 'User Reviews' ?
 	                                    	 <div className="basicInfo">
 		                                        <h3 className="producer-text" style={{textAlign: 'center'}}><b>Some Reviews about this wine </b></h3>
-		                                        <div>
-		                                           {disPlayListUserReviews()}
-		                                        </div>
+	                                           {disPlayListUserReviews()}
+
+                                               <div className="user-review-card" >
+                                                    <div className="user-review-pic">
+                                                        <img src={Logo} width="50px" />
+                                                    </div>
+                                                    <div className="user-review-info">
+                                                        <img src={Logo} width="50px"  /> 
+                                                    </div>
+                                                </div>
 		                                    </div>
 	                                	:null}
 	                                </div>

@@ -36,13 +36,13 @@ class UsersWineReviews extends React.Component {
 
 		return (
 
-			<Container className="card">
+			<div className="card">
 			  {showPics()}
 			  <h5>{this.props.producer.name}</h5>
 			  <p className="title" style={{padding: "20px"}}>{ shortenedText}</p>
 			  <p>Harvard University</p>
 			  <p><button className="reviewButton">Contact</button></p>
-			</Container>
+			</div>
 		)
 	}
 }

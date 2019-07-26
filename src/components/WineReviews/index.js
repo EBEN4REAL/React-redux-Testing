@@ -28,8 +28,8 @@ class WineReviews extends React.Component {
 		if(this.state.wines !== null) {
 
 			renderWineReviews = this.state.wines.wines.map((wine, index) => (
-				<Col key={index}>
-					<UserReviews  {...wine} className="mb-3" />
+				<Col key={index} className="mb-3">
+					<UserReviews  {...wine}  />
 				</Col>
 			));
 
