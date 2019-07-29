@@ -1,21 +1,32 @@
 .navbar{
 	height: 50px;
-	background: #3f51b5;
-	color: white;
+	background: white;
+	color: black;
 	display: flex;
 	flex-wrap: wrap;
 	.logo {
-		flex: 0 0 60%;
-		.logo-img {
-			height: 40px;
+		flex: 0 0 70%;
+		.hamburger {
 			position: absolute;
 		    top: 0;
 		    bottom: 0;
 		    margin: auto;
+		    width: 40px;
+		    height: 40px;
+		    border: 1px solid #3f51b5;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    .hamburger-menu{
+		    	margin: auto;
+		    	width: 80%;
+		    	height: 3px;
+		    	background: #3f51b5;
+		    	margin-top: 7px;
+		    }
 		}
 	}
 	.menu-links {
-		flex: 0 0 40%;
+		flex: 0 0 30%;
 
 		ul > li {
 			list-style-type: none;
