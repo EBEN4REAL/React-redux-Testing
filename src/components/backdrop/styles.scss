@@ -1,0 +1,34 @@
+.backdrop{
+	position: fixed;
+	top:0;
+	left: 0;
+	height: 100%;
+	width: 300px;
+	background: #3f51b5;
+	z-index: 999;
+	overflow-x: hidden;
+	margin: 0;
+	padding: 20px;
+	.backdrop-menu{
+		margin: 0 auto;
+		ul > li {
+			list-style-type: none;
+			color: white;
+		}
+		ul > li > a {
+			margin-top: 10px;
+			color: white;
+			text-decoration: none;
+		}
+		ul > li > a:hover{
+			color: grey;
+		}
+		.backdrop-close{
+			font-size: 30px;
+			float: right;
+			color: white;
+			cursor: pointer;
+		}
+		
+	}
+}

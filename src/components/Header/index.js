@@ -8,14 +8,24 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import {NavLink} from 'react-router-dom';
 import Logo from '../../logo.svg';
 import './styles.scss';
+import Backdrop from '../backdrop';
 
 class Navbar extends React.Component {
+	state = {
+		openBackdrop: false
+	}
+
+	openBackdropHandler = () => {
+		this.setState({
+			openBackdrop: !this.state.openBackdrop
+		})
+	}
 
 	render(){
 		return (
 			<div className="navbar">
 				<div className="logo">
-					<div className="hamburger">
+					<div className="hamburger" onClick={() => this.openBackdropHandler()}>
 						<div className="hamburger-menu"></div>
 						<div className="hamburger-menu"></div>
 						<div className="hamburger-menu"></div>
@@ -27,6 +37,7 @@ class Navbar extends React.Component {
 						<li><a>Wines Producer</a></li>
 					</ul>
 				</div>
+				{this.state.openBackdrop ? <Backdrop openBackdropHandler={this.openBackdropHandler}  /> : null}
 				
 			</div>
 		)

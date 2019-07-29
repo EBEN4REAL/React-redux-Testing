@@ -33,6 +33,12 @@
 			display: inline-block;
 			margin-right: 30px;
 		}
+		ul > li > a {
+			color: grey;
+		}
+		ul > li > a:hover {
+			color: #3f51b5;
+		}
 	}
 }
 
