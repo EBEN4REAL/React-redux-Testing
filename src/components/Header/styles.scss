@@ -1,16 +1,29 @@
-.nav-link{
+.navbar{
+	height: 50px;
+	background: #3f51b5;
 	color: white;
-	cursor: pointer;
-	margin-right: 25px;
-	text-decoration: none
+	display: flex;
+	flex-wrap: wrap;
+	.logo {
+		flex: 0 0 60%;
+		.logo-img{
+			height: 50px;
+			position: absolute;
+		    top: 0;
+		    bottom: 0;
+		    margin: auto;
+		}
+	}
+	.menu-links {
+		flex: 0 0 40%;
+
+		ul > li {
+			list-style-type: none;
+			display: inline-block;
+			margin-right: 30px;
+		}
+	}
 }
-.active {
-	background-color: grey;
-	color: black;
-}
-
-
-
 
 
 

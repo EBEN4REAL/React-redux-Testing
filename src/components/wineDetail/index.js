@@ -7,6 +7,8 @@ import {Link} from 'react-router-dom';
 import Paper  from '@material-ui/core/Paper';
 import ListItem from '../ListItem';
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 
 class Wine extends Component {
@@ -132,6 +134,7 @@ class Wine extends Component {
                                         backgroundPosition: 'fixed',
                                         
                                     }} >
+                            {!this.state.fetchedWines ?  <Spinner /> : null}
                         </div>
                         
 
