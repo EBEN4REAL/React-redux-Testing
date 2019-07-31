@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import Logo from '../../logo.svg';
 import './styles.scss';
 import Backdrop from '../backdrop';
@@ -33,8 +33,8 @@ class Navbar extends React.Component {
 				</div>
 				<div className="menu-links">
 					<ul>
-						<li><a>Home</a></li>
-						<li><a>Wines Producer</a></li>
+						<Link to="/" style={{marginRight: '20px', textDecoration: 'none'}}>Home</Link>
+						<Link to="/wine_reviews" style={{marginRight: '20px', textDecoration: 'none'}}>Wine producers</Link>
 					</ul>
 				</div>
 				{this.state.openBackdrop ? <Backdrop openBackdropHandler={this.openBackdropHandler}  /> : null}

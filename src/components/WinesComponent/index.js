@@ -33,7 +33,6 @@ class Wines extends React.Component {
 
 	goToWineDetailsPage = (wineId) => {
 		this.props.history.push({pathname: '/wines/' + wineId});
-		// console.log(this.props);
 	}
 
 	fetchWines = () => {
@@ -108,7 +107,7 @@ class Wines extends React.Component {
       	loadWinesButton = (
       		<Button variant="contained" color="primary" onClick={() => this.fetchWines()}>
 	              Load Wines
-	         </Button>
+	        </Button>
       	)
       }
 
