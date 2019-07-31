@@ -5,28 +5,18 @@
 	display: flex;
 	flex-wrap: wrap;
 	.logo {
-		flex: 0 0 70%;
-		.hamburger {
+		flex: 0 0 20%;
+		.brand-logo{
 			position: absolute;
-		    top: 0;
-		    bottom: 0;
-		    margin: auto;
-		    width: 40px;
-		    height: 40px;
-		    border: 1px solid #3f51b5;
-		    border-radius: 5px;
-		    cursor: pointer;
-		    .hamburger-menu{
-		    	margin: auto;
-		    	width: 80%;
-		    	height: 3px;
-		    	background: #3f51b5;
-		    	margin-top: 7px;
-		    }
+			top: 0;
+			left: 0;
+			bottom: 0;
+			margin: auto;
+			height: 40px;
 		}
 	}
 	.menu-links {
-		flex: 0 0 30%;
+		flex: 0 0 60%;
 
 		ul > li {
 			list-style-type: none;
@@ -40,22 +30,24 @@
 			color: #3f51b5;
 		}
 	}
+	.hamburger {
+			position: absolute;
+			right: 10px;
+		    top: 0;
+		    bottom: 0;
+		    margin: auto;
+		    width: 40px;
+		    height: 40px;
+		    border: 1px solid #3f51b5;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    flex: 0 0 20%;
+		    .hamburger-menu{
+		    	margin: auto;
+		    	width: 80%;
+		    	height: 3px;
+		    	background: #3f51b5;
+		    	margin-top: 7px;
+		    }
+		}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,17 +25,18 @@ class Navbar extends React.Component {
 		return (
 			<div className="navbar">
 				<div className="logo">
-					<div className="hamburger" onClick={() => this.openBackdropHandler()}>
-						<div className="hamburger-menu"></div>
-						<div className="hamburger-menu"></div>
-						<div className="hamburger-menu"></div>
-					</div>
+					<img src={Logo} className="brand-logo" alt="logo"  />
 				</div>
 				<div className="menu-links">
 					<ul>
 						<Link to="/" style={{marginRight: '20px', textDecoration: 'none'}}>Home</Link>
 						<Link to="/wine_reviews" style={{marginRight: '20px', textDecoration: 'none'}}>Wine producers</Link>
 					</ul>
+				</div>
+				<div className="hamburger" onClick={() => this.openBackdropHandler()}>
+					<div className="hamburger-menu"></div>
+					<div className="hamburger-menu"></div>
+					<div className="hamburger-menu"></div>
 				</div>
 				{this.state.openBackdrop ? <Backdrop openBackdropHandler={this.openBackdropHandler}  /> : null}
 				
